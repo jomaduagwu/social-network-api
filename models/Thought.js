@@ -1,7 +1,38 @@
 const { Schema, model } = require('mongoose');
 // const assignmentSchema = require('./Assignment');
 
-// Schema to create Student model
+
+// reactionSchema for the nested documents inside the reactions array
+const reactionSchema = new mongoose.Schema(
+    {
+        reactionId: {
+            type: mongoose.Schema.Types.ObjectId,
+            default: () => new mongoose.Types.ObjectId()
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280,
+        },
+        username: {
+            type: String,
+            required: true,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+        }
+    },
+    {
+        toJSON: {
+            getters: true,
+        },
+        id: false,
+    }
+);
+
+// Schema to create Thought model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
