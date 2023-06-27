@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 // const assignmentSchema = require('./Assignment');
 
 // Schema to create Student model
@@ -8,7 +8,7 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      trim: true,
+      trimmed: true,
     },
     email: {
       type: String,
@@ -22,14 +22,14 @@ const userSchema = new Schema(
     },
     thoughts: [
         {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Thought'
     //   Array of _id values referencing the Thought model
     }
 ],
     friends: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         }
     ]
@@ -46,6 +46,6 @@ userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

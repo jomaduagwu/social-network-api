@@ -1,13 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 // const assignmentSchema = require('./Assignment');
 
 
 // reactionSchema for the nested documents inside the reactions array
-const reactionSchema = new mongoose.Schema(
+const reactionSchema = new Schema(
     {
         reactionId: {
-            type: mongoose.Schema.Types.ObjectId,
-            default: () => new mongoose.Types.ObjectId()
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
         },
         reactionBody: {
             type: String,
@@ -66,6 +66,6 @@ thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-const Thought = mongoose.model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
