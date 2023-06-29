@@ -1,20 +1,19 @@
 const { Schema, Types, model } = require('mongoose');
-// const assignmentSchema = require('./Assignment');
 
-// Schema to create Student model
+// Schema to create user model
 const userSchema = new Schema(
   {
     username: {
       type: String,
-      unique: true,
+      unique: [true, "Username is already in use!"],
       required: true,
-      trimmed: true,
+      trimm: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/,
+      match: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/,
     //   validate: 
     //     {validator: function(v) 
     //         {return /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(v);},
@@ -42,10 +41,12 @@ const userSchema = new Schema(
   }
 );
 
+const User = model('User', userSchema);
+
 userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
-const User = model('User', userSchema);
+
 
 module.exports = User;

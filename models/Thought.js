@@ -1,5 +1,4 @@
 const { Schema, Types, model } = require('mongoose');
-// const assignmentSchema = require('./Assignment');
 
 
 // reactionSchema for the nested documents inside the reactions array
@@ -55,17 +54,19 @@ const thoughtSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true,
+      // virtuals: true,
       getters: true,
     },
     id: false
   }
 );
 
+const Thought = model('Thought', thoughtSchema);
+
 thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 
-const Thought = model('Thought', thoughtSchema);
+
 
 module.exports = Thought;
