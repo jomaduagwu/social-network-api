@@ -14,7 +14,7 @@
 
 
   ## Installation
-  Clone the respository from the repo in GitHub. Make sure you install Node.js and NPM on your computer. You will need to install the node package manager (NPM) using `npm init` and then the inquirer v8.2.4 module using `npm i inquirer@8.2.4`. Use `npm install` to install dependencies.
+  Clone the respository from the repo in GitHub to your local machine. Make sure you install Node.js and NPM on your computer. Run `npm install` to install dependencies and `npm run start` to start the application.
 
 
   ## Usage
@@ -38,8 +38,9 @@
 
 ## Features
 * Node.js
-* Express
+* Express.js
 * Mongoose
+* MongoDB
 
 
 ## License
