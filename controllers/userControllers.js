@@ -13,7 +13,15 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.params.userId })
         .select('-__v')
-        .populate('thoughts');
+        .populate('thoughts')
+        .populate({
+          path: 'thoughts',
+          populate: {
+            path: 'reactions',
+            model: 'Reaction',
+            select: '-__v',
+          },
+        });
 
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' });

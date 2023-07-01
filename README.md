@@ -8,7 +8,6 @@
 ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Credits](#credits)
   - [Features](#features)
   - [License](#license)
 
@@ -18,20 +17,15 @@
 
 
   ## Usage
-  You can find the walkthrough video here - [social network api walkthrough video](https://drive.google.com/file/d/10rrPpqKq-rbmrdPNkO2JhKBC775jMrPP/view?usp=sharing)
+  You can find the walkthrough video here - [social network api walkthrough video](https://drive.google.com/file/d/1g4vKQXPYE9b0YYgCfHOxla7UCswXcBQW/view?usp=sharing)
 
   
 
-  ![social network api video](./assets/SVG-logo-generator.gif)
+  ![social network api gif](./images/social-network-api-walkthrough.gif)
+
+  ![social network api routes](./images/social-network-api-routes.png)
 
 
-
-
-
-
-
-
-## Credits
  
  
   
